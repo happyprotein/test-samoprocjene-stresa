@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test samoprocjene stresa</title>
+  <style>
+    body {font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:#f5f7fb; margin:0; padding:40px; color:#0f172a;}
+    .container {max-width:900px; margin:auto; background:#ffffff; padding:32px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.08);}    
+    .brand {font-weight:800; letter-spacing:1px; margin-bottom:24px;}
+    h1 {margin-top:0;}
+    .question {margin-bottom:20px;}
+    .question p {font-weight:600;}
+    label {display:block; margin:6px 0; cursor:pointer;}
+    button {margin-top:24px; padding:14px 24px; border:none; border-radius:12px; background:#2563eb; color:white; font-size:16px; font-weight:600; cursor:pointer;}
+    button:hover {background:#1d4ed8;}
+    .result {margin-top:32px; padding:24px; border-radius:12px; background:#f1f5f9; display:none;}
+    .psycho {margin-top:32px; padding:24px; border-radius:12px; background:#ecfeff;}
+    .cta {margin-top:24px; text-align:center;}
+    .cta a {display:inline-block; padding:14px 28px; border-radius:12px; background:#0f172a; color:white; text-decoration:none; font-weight:600;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">MLADEN CIMEŠA MSc GENETIKE – PSIHOLOG</div>
+
+    <h1>Test samoprocjene stresa (rad i život)</h1>
+    <p>Označite koliko se često svaka tvrdnja odnosi na vas u posljednjih mjesec dana.</p>
+
+    <form id="stressForm">
+      <div class="question">
+        <p>1. Osjećam se emocionalno iscrpljeno.</p>
+        <label><input type="radio" name="q1" value="0" required> Nikada</label>
+        <label><input type="radio" name="q1" value="1"> Rijetko</label>
+        <label><input type="radio" name="q1" value="2"> Ponekad</label>
+        <label><input type="radio" name="q1" value="3"> Često</label>
+        <label><input type="radio" name="q1" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>2. Imam osjećaj da gubim kontrolu nad obavezama.</p>
+        <label><input type="radio" name="q2" value="0" required> Nikada</label>
+        <label><input type="radio" name="q2" value="1"> Rijetko</label>
+        <label><input type="radio" name="q2" value="2"> Ponekad</label>
+        <label><input type="radio" name="q2" value="3"> Često</label>
+        <label><input type="radio" name="q2" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>3. Stres sa posla utiče na moj privatni život.</p>
+        <label><input type="radio" name="q3" value="0" required> Nikada</label>
+        <label><input type="radio" name="q3" value="1"> Rijetko</label>
+        <label><input type="radio" name="q3" value="2"> Ponekad</label>
+        <label><input type="radio" name="q3" value="3"> Često</label>
+        <label><input type="radio" name="q3" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>4. Teško se opuštam i kada imam slobodno vrijeme.</p>
+        <label><input type="radio" name="q4" value="0" required> Nikada</label>
+        <label><input type="radio" name="q4" value="1"> Rijetko</label>
+        <label><input type="radio" name="q4" value="2"> Ponekad</label>
+        <label><input type="radio" name="q4" value="3"> Često</label>
+        <label><input type="radio" name="q4" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>5. Osjećam fizičke simptome stresa (napetost, umor, glavobolje).</p>
+        <label><input type="radio" name="q5" value="0" required> Nikada</label>
+        <label><input type="radio" name="q5" value="1"> Rijetko</label>
+        <label><input type="radio" name="q5" value="2"> Ponekad</label>
+        <label><input type="radio" name="q5" value="3"> Često</label>
+        <label><input type="radio" name="q5" value="4"> Vrlo često</label>
+      </div>
+
+      <button type="submit">Prikaži rezultat</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <div class="psycho">
+      <h3>🧠 Kratka psihoedukacija</h3>
+      <p>Stres je prirodan odgovor organizma, ali hronični stres može uticati na mentalno i fizičko zdravlje. Prepoznavanje nivoa stresa je prvi korak ka promjeni – regulaciji emocija, boljim granicama i očuvanju zdravlja.</p>
+    </div>
+
+    <div class="cta">
+      <a href="https://mladencimesa.com" target="_blank">Zakaži individualnu konsultaciju</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('stressForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let total = 0;
+      for (let i = 1; i <= 5; i++) {
+        const val = document.querySelector('input[name="q' + i + '"]:checked').value;
+        total += parseInt(val);
+      }
+
+      let message = '';
+      if (total <= 6) message = 'Nizak nivo stresa.';
+      else if (total <= 12) message = 'Umjeren nivo stresa.';
+      else message = 'Visok nivo stresa – preporučuje se stručna podrška.';
+
+      const result = document.getElementById('result');
+      result.innerHTML = `<h3>Vaš rezultat: ${total}</h3><p>${message}</p>`;
+      result.style.display = 'block';
+      result.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
