@@ -28,6 +28,7 @@
     <p>Označite koliko se često svaka tvrdnja odnosi na vas u posljednjih mjesec dana.</p>
 
     <form id="stressForm">
+      <!-- Pitanja 1-15 -->
       <div class="question">
         <p>1. Osjećam se emocionalno iscrpljeno.</p>
         <label><input type="radio" name="q1" value="0" required> Nikada</label>
@@ -73,6 +74,97 @@
         <label><input type="radio" name="q5" value="4"> Vrlo često</label>
       </div>
 
+      <!-- Dodatnih 10 pitanja -->
+      <div class="question">
+        <p>6. Često sam napet/a ili nervozan/a bez jasnog razloga.</p>
+        <label><input type="radio" name="q6" value="0" required> Nikada</label>
+        <label><input type="radio" name="q6" value="1"> Rijetko</label>
+        <label><input type="radio" name="q6" value="2"> Ponekad</label>
+        <label><input type="radio" name="q6" value="3"> Često</label>
+        <label><input type="radio" name="q6" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>7. Imam poteškoće sa koncentracijom zbog stresa.</p>
+        <label><input type="radio" name="q7" value="0" required> Nikada</label>
+        <label><input type="radio" name="q7" value="1"> Rijetko</label>
+        <label><input type="radio" name="q7" value="2"> Ponekad</label>
+        <label><input type="radio" name="q7" value="3"> Često</label>
+        <label><input type="radio" name="q7" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>8. Teško zaspu ili se često budim noću zbog stresa.</p>
+        <label><input type="radio" name="q8" value="0" required> Nikada</label>
+        <label><input type="radio" name="q8" value="1"> Rijetko</label>
+        <label><input type="radio" name="q8" value="2"> Ponekad</label>
+        <label><input type="radio" name="q8" value="3"> Često</label>
+        <label><input type="radio" name="q8" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>9. Osjećam da nemam dovoljno vremena za sebe.</p>
+        <label><input type="radio" name="q9" value="0" required> Nikada</label>
+        <label><input type="radio" name="q9" value="1"> Rijetko</label>
+        <label><input type="radio" name="q9" value="2"> Ponekad</label>
+        <label><input type="radio" name="q9" value="3"> Često</label>
+        <label><input type="radio" name="q9" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>10. Osjećam se preopterećeno obavezama i odgovornostima.</p>
+        <label><input type="radio" name="q10" value="0" required> Nikada</label>
+        <label><input type="radio" name="q10" value="1"> Rijetko</label>
+        <label><input type="radio" name="q10" value="2"> Ponekad</label>
+        <label><input type="radio" name="q10" value="3"> Često</label>
+        <label><input type="radio" name="q10" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>11. Osjećam zabrinutost zbog budućnosti i neizvjesnosti.</p>
+        <label><input type="radio" name="q11" value="0" required> Nikada</label>
+        <label><input type="radio" name="q11" value="1"> Rijetko</label>
+        <label><input type="radio" name="q11" value="2"> Ponekad</label>
+        <label><input type="radio" name="q11" value="3"> Često</label>
+        <label><input type="radio" name="q11" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>12. Osjećam se frustrirano kada stvari ne idu kako želim.</p>
+        <label><input type="radio" name="q12" value="0" required> Nikada</label>
+        <label><input type="radio" name="q12" value="1"> Rijetko</label>
+        <label><input type="radio" name="q12" value="2"> Ponekad</label>
+        <label><input type="radio" name="q12" value="3"> Često</label>
+        <label><input type="radio" name="q12" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>13. Osjećam napetost u tijelu (ramena, vrat, leđa) zbog stresa.</p>
+        <label><input type="radio" name="q13" value="0" required> Nikada</label>
+        <label><input type="radio" name="q13" value="1"> Rijetko</label>
+        <label><input type="radio" name="q13" value="2"> Ponekad</label>
+        <label><input type="radio" name="q13" value="3"> Često</label>
+        <label><input type="radio" name="q13" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>14. Teško se fokusiram na zadatke kada sam pod stresom.</p>
+        <label><input type="radio" name="q14" value="0" required> Nikada</label>
+        <label><input type="radio" name="q14" value="1"> Rijetko</label>
+        <label><input type="radio" name="q14" value="2"> Ponekad</label>
+        <label><input type="radio" name="q14" value="3"> Često</label>
+        <label><input type="radio" name="q14" value="4"> Vrlo često</label>
+      </div>
+
+      <div class="question">
+        <p>15. Često osjećam emocionalnu nestabilnost zbog stresa.</p>
+        <label><input type="radio" name="q15" value="0" required> Nikada</label>
+        <label><input type="radio" name="q15" value="1"> Rijetko</label>
+        <label><input type="radio" name="q15" value="2"> Ponekad</label>
+        <label><input type="radio" name="q15" value="3"> Često</label>
+        <label><input type="radio" name="q15" value="4"> Vrlo često</label>
+      </div>
+
       <button type="submit">Prikaži rezultat</button>
     </form>
 
@@ -92,14 +184,14 @@
     document.getElementById('stressForm').addEventListener('submit', function(e) {
       e.preventDefault();
       let total = 0;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 15; i++) {
         const val = document.querySelector('input[name="q' + i + '"]:checked').value;
         total += parseInt(val);
       }
 
       let message = '';
-      if (total <= 6) message = 'Nizak nivo stresa.';
-      else if (total <= 12) message = 'Umjeren nivo stresa.';
+      if (total <= 15) message = 'Nizak nivo stresa.';
+      else if (total <= 30) message = 'Umjeren nivo stresa.';
       else message = 'Visok nivo stresa – preporučuje se stručna podrška.';
 
       const result = document.getElementById('result');
